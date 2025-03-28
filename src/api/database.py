@@ -1,7 +1,6 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
 
-# Database connection details
 DB_NAME = "invsto"
 DB_USER = "postgres"
 DB_PASSWORD = "Cdhruv@1234"

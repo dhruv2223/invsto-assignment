@@ -12,7 +12,6 @@ class TestDataEndpoints(unittest.TestCase):
         self.assertIn("stock_data", response.json())
 
     def test_post_data_validation(self):
-        # Test valid data
         valid_data = {
             "datetime": "2024-03-20T10:00:00",
             "open": 100.50,
@@ -24,19 +23,16 @@ class TestDataEndpoints(unittest.TestCase):
         response = client.post("/api/data/", json=valid_data)
         self.assertEqual(response.status_code, 200)
 
-        # Test invalid datetime
         invalid_datetime = valid_data.copy()
         invalid_datetime["datetime"] = "invalid-date"
         response = client.post("/api/data/", json=invalid_datetime)
         self.assertEqual(response.status_code, 422)
 
-        # Test invalid numeric values
         invalid_numeric = valid_data.copy()
         invalid_numeric["open"] = "not-a-number"
         response = client.post("/api/data/", json=invalid_numeric)
         self.assertEqual(response.status_code, 422)
 
-        # Test missing required fields
         missing_fields = {
             "datetime": "2024-03-20T10:00:00",
             "open": 100.50

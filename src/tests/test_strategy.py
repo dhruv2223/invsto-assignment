@@ -34,7 +34,6 @@ class TestStrategyCalculations(unittest.TestCase):
         for metric in required_metrics:
             self.assertIn(metric, performance)
         
-        # Test if metrics have reasonable values
         self.assertIsInstance(performance['total_return'], float)
         self.assertIsInstance(performance['annual_return'], float)
         self.assertIsInstance(performance['sharpe_ratio'], float)
