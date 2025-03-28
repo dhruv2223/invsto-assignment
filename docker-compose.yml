@@ -21,7 +21,9 @@ services:
     env_file:
       - .env
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - ./stock_data.csv:/docker-entrypoint-initdb.d/stock_data.csv # Corrected mounting
+      - postgres_data:/var/lib/postgresql/data # Persistent database storage
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   postgres_data:

@@ -6,5 +6,6 @@ datetime
 numpy
 pandas
 pytest
+dotenv
 coverage
 
